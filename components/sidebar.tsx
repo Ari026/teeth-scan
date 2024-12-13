@@ -1,9 +1,8 @@
 "use client"
-
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { ScrollText, Plus, LayoutGrid, Settings, LogIn } from 'lucide-react'
+import { ScrollText, Plus, LayoutGrid, Settings, LogIn, BarChart } from 'lucide-react'
 import React from "react"
 
 const routes = [
@@ -18,9 +17,9 @@ const routes = [
     href: "/dashboard/studies",
   },
   {
-    label: "Add Scans",
-    icon: Plus,
-    href: "/dashboard/add-scans",
+    label: "Analytics",
+    icon: BarChart,
+    href: "/dashboard/analytics",
   },
   {
     label: "Settings",

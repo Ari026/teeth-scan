@@ -4,7 +4,7 @@ export const sampleStudies: Study[] = [
   {
     id: "1",
     patientName: "John Doe",
-    date: "2023-05-15",
+    date: "2024-12-13",
     modality: "CT",
     status: "pending",
     imageUrl: "/placeholder.svg?height=400&width=400",

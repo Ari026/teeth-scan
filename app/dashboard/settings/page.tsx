@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Switch } from "@/components/ui/switch"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 const settingsSections = [
   { id: "account", label: "My Account" },
@@ -37,11 +38,20 @@ export default function SettingsPage() {
   const [activeSection, setActiveSection] = useState("account")
   const { theme, setTheme } = useTheme()
   const [darkMode, setDarkMode] = useState(theme === "dark")
+  const [language, setLanguage] = useState("english")
 
   const handleDarkModeToggle = (checked: boolean) => {
     setDarkMode(checked)
     setTheme(checked ? "dark" : "light")
-    console.log(theme);
+  }
+
+  const handleLanguageChange = (value: string) => {
+    setLanguage(value)
+  }
+
+  const handleSaveLanguage = () => {
+    console.log("Language saved:", language)
+    // Here you would typically save the language preference to your backend
   }
 
   const renderContent = () => {
@@ -84,6 +94,29 @@ export default function SettingsPage() {
                   onCheckedChange={handleDarkModeToggle}
                 />
                 <Label htmlFor="dark-mode">Dark Mode</Label>
+              </div>
+            </div>
+          </div>
+        )
+      case "language":
+        return (
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-xl font-semibold mb-4">Language Settings</h2>
+              <div className="grid gap-4">
+                <div className="grid gap-2">
+                  <Label htmlFor="language">Select Language</Label>
+                  <Select value={language} onValueChange={handleLanguageChange}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select language" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="english">English</SelectItem>
+                      <SelectItem value="spanish">Spanish</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <Button onClick={handleSaveLanguage}>Save Changes</Button>
               </div>
             </div>
           </div>
