@@ -4,6 +4,9 @@ import { useParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { sampleStudies } from "@/lib/sample-data"
+import { Progress } from "@/components/ui/progress"
+import { getConfidenceColor } from "@/lib/utils"
+                {console.log(getConfidenceColor(30))}
 
 export default function StudyDetailPage() {
   const params = useParams()
@@ -39,6 +42,17 @@ export default function StudyDetailPage() {
               }`}>
                 {study.status.charAt(0).toUpperCase() + study.status.slice(1)}
               </span></p>
+              <div className="space-y-2">
+                <p className="font-semibold">Reusability Confidence</p>
+                <p>               
+                </p>
+                <Progress 
+                  value={study.confidence} 
+                  className="w-full" 
+                  indicatorClassName={ getConfidenceColor(study.confidence) }
+                />
+                <p className="text-right">{study.confidence}%</p>
+              </div>
               <div className="space-y-2">
                 <h3 className="font-semibold">Additional Information</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisi vel consectetur interdum, nisl nunc egestas nunc, vitae tincidunt nisl nunc euismod nunc.</p>

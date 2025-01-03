@@ -4,10 +4,11 @@ export const sampleStudies: Study[] = [
   {
     id: "1",
     patientName: "John Doe",
-    date: "2024-12-13",
+    date: "2023-05-15",
     modality: "CT",
     status: "pending",
     imageUrl: "/placeholder.svg?height=400&width=400",
+    confidence: 85,
   },
   {
     id: "2",
@@ -16,6 +17,7 @@ export const sampleStudies: Study[] = [
     modality: "X-Ray",
     status: "accepted",
     imageUrl: "/placeholder.svg?height=400&width=400",
+    confidence: 92,
   },
   {
     id: "3",
@@ -24,6 +26,7 @@ export const sampleStudies: Study[] = [
     modality: "MRI",
     status: "rejected",
     imageUrl: "/placeholder.svg?height=400&width=400",
+    confidence: 45,
   },
   {
     id: "4",
@@ -32,6 +35,7 @@ export const sampleStudies: Study[] = [
     modality: "CT",
     status: "pending",
     imageUrl: "/placeholder.svg?height=400&width=400",
+    confidence: 78,
   },
   {
     id: "5",
@@ -40,6 +44,7 @@ export const sampleStudies: Study[] = [
     modality: "X-Ray",
     status: "pending",
     imageUrl: "/placeholder.svg?height=400&width=400",
+    confidence: 88,
   },
 ]
 

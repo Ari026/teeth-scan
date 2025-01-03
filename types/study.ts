@@ -7,5 +7,7 @@ export interface Study {
   modality: string;
   status: StudyStatus;
   imageUrl: string;
+  confidence: number;
+
 }
 

@@ -7,6 +7,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Check, X } from 'lucide-react'
 import { sampleStudies } from "@/lib/sample-data"
 import { Study } from "@/types/study"
+import { Progress } from "@/components/ui/progress"
+import { getConfidenceColor } from "@/lib/utils"
 
 export default function StudiesPage() {
   const [studies, setStudies] = useState<Study[]>(sampleStudies)
@@ -51,6 +53,15 @@ export default function StudiesPage() {
                   }`}>
                     {study.status.charAt(0).toUpperCase() + study.status.slice(1)}
                   </p>
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium">Reusability Confidence</p>
+                    <Progress 
+                      value={study.confidence} 
+                      className="w-full" 
+                      indicatorClassName={getConfidenceColor(study.confidence)}
+                    />
+                    <p className="text-sm text-right">{study.confidence}%</p>
+                  </div>
                 </div>
               </Link>
               {study.status === 'pending' && (
